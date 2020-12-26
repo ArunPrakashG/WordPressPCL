@@ -90,6 +90,24 @@ namespace WordPressPCL.Tests.Selfhosted
             Assert.IsNotNull(fileUpdated);
             Assert.AreEqual(fileUpdated.Title.Raw, title);
         }
+
+        [TestMethod]
+        public async Task Media_Update2()
+        {
+            var path = Directory.GetCurrentDirectory() + "/Assets/cat.jpg";
+            Stream s = File.OpenRead(path);
+            var mediaItem = await _clientAuth.Media.Create(s, "cat.jpg");
+
+            mediaItem.Description = new Description { Raw = "Cat Description" };
+            mediaItem.Title = new Title { Raw = "Cat Title" };
+            mediaItem.Caption = new Caption { Raw = "Cat Caption" };
+
+            var updatedItem = await _clientAuth.Media.Update(mediaItem);
+            Assert.AreEqual(mediaItem.Title.Raw, updatedItem.Title.Raw);
+            Assert.AreEqual(mediaItem.Description.Raw, updatedItem.Description.Raw);
+            Assert.AreEqual(mediaItem.Caption.Raw, updatedItem.Caption.Raw);
+        }
+
         [TestMethod]
         public async Task Media_Delete()
         {
