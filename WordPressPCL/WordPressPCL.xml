@@ -258,15 +258,6 @@
             Update Entity
             </summary>
             <param name="Entity">Entity object</param>
-            <returns>Updated object</returns>aram name="queryBuilder">Query builder with specific parameters</param>
-            <param name="useAuth">Send request with authentication header</param>
-            <returns>List of filtered result</returns>
-        </member>
-        <member name="M:WordPressPCL.Client.Media.Update(WordPressPCL.Models.MediaItem)">
-            <summary>
-            Update Entity
-            </summary>
-            <param name="Entity">Entity object</param>
             <returns>Updated object</returns>
         </member>
         <member name="T:WordPressPCL.Client.Pages">
@@ -435,6 +426,15 @@
             <param name="httpHelper">reference to HttpHelper class for interaction with HTTP</param>
             <param name="defaultPath">path to site, EX. http://demo.com/wp-json/ </param>
         </member>
+        <member name="M:WordPressPCL.Client.PostStatuses.Get(System.Boosummary>
+        </member>
+        <member name="M:WordPressPCL.Client.PostStatuses.#ctor(WordPressPCL.Utility.HttpHelper@,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="httpHelper">reference to HttpHelper class for interaction with HTTP</param>
+            <param name="defaultPath">path to site, EX. http://demo.com/wp-json/ </param>
+        </member>
         <member name="M:WordPressPCL.Client.PostStatuses.Get(System.Boolean,System.Boolean)">
             <summary>
             Get latest Post Statuses
@@ -595,15 +595,7 @@
             </summary>
             <param name="ID">ID</param>
             <param name="embed">include embed info</param>
-            <param name="useAuth">Send request with authentication header</param>
-            <returns>Entity by Id</returns>
-        </member>
-        <member name="M:WordPressPCL.Client.Users.Query(WordPressPCL.Utility.UsersQueryBuilder,System.Boolean)">
-            <summary>
-            Create a parametrized query and get a result
-            </summary>
-            <param name="queryBuilder">Query builder with specific parameters</param>
-            <param name="useAuth">Send request with authentication header</param>
+            <param name="useA/param>
             <returns>List of filtered result</returns>
         </member>
         <member name="M:WordPressPCL.Client.Users.Update(WordPressPCL.Models.User)">
@@ -686,7 +678,17 @@
             Get latest
             </summary>
             <param name="embed">Is use embed info</param>
-            <param namquested object</returns>
+            <param name="useAuth">Is use auth header</param>
+            <returns>requested object</returns>
+        </member>
+        <member name="M:WordPressPCL.Interfaces.IReadOperation`1.GetByID(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Get object by Id
+            </summary>
+            <param name="ID">Object Id</param>
+            <param name="embed">Is use embed info</param>
+            <param name="useAuth">Is use auth header</param>
+            <returns>requested object</returns>
         </member>
         <member name="M:WordPressPCL.Interfaces.IReadOperation`1.GetAll(System.Boolean,System.Boolean)">
             <summary>
@@ -781,22 +783,6 @@
             </remarks>
         </member>
         <member name="T:WordPressPCL.Models.Category">
-            <summary>
-            Terms of the type category
-            </summary>
-        </member>
-        <member name="P:WordPressPCL.Models.Category.Count">
-            <summary>
-            Number of published posts for the term.
-            </summary>
-            <remarks>
-            Read only
-            Context: view, edit
-            </remarks>
-        </member>
-        <member name="P:WordPressPCL.Models.Category.Description">
-            <summary>
-    .Category">
             <summary>
             Terms of the type category
             </summary>
@@ -3917,8 +3903,8 @@
             <summary>
             The WordPressClient holds all connection infos and provides methods to call WordPress APIs.
             </summary>
-            <param name="httpClient">Httpclient with BaseAddress set which will be used for sending requests to the WordPress API endpoint.</param>
-            <param name="defaultPath"></param>
+            <param name="httpClient">HttpClient with BaseAddress set which will be used for sending requests to the WordPress API endpoint.</param>
+            <param name="defaultPath">Relative path to standard API endpoints, defaults to "wp/v2/"</param>
         </member>
         <member name="M:WordPressPCL.WordPressClient.GetSettings">
             <summary>
@@ -3957,6 +3943,22 @@
             </summary>
             <param name="response">Json response input string</param>
             <returns>Json response output string</returns>
+        </member>
+        <member name="M:WordPressPCL.WordPressClient.SetJWToken(System.String)">
+            <summary>
+            Sets an existing JWToken
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:WordPressPCL.WordPressClient.GetToken">
+            <summary>
+            Gets the JWToken from the client
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
+tring</returns>
         </member>
         <member name="M:WordPressPCL.WordPressClient.SetJWToken(System.String)">
             <summary>
