@@ -33,10 +33,8 @@ namespace WordPressPCL
         /// </summary>
         public Func<string, string> HttpResponsePreProcessing
         {
-            set
-            {
-                _httpHelper.HttpResponsePreProcessing = value;
-            }
+            get => _httpHelper.HttpResponsePreProcessing;
+            set => _httpHelper.HttpResponsePreProcessing = value;
         }
 
         /// <summary>
@@ -45,14 +43,8 @@ namespace WordPressPCL
         /// </summary>
         public JsonSerializerSettings JsonSerializerSettings
         {
-            set
-            {
-                _httpHelper.JsonSerializerSettings = value;
-            }
-            get
-            {
-                return _httpHelper.JsonSerializerSettings;
-            }
+            get => _httpHelper.JsonSerializerSettings;
+            set => _httpHelper.JsonSerializerSettings = value;
         }
 
         /// <summary>
